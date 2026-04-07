@@ -1,0 +1,36 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Temporary files
+.tmp/
+active/
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+
+# Claude project memory (auto-generated, user-specific)
+.claude/projects/
