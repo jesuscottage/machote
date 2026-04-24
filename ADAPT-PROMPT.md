@@ -26,7 +26,7 @@ Before making ANY changes, audit the current state:
 2. Check if there are skills, rules, or agents anywhere outside `.claude/` (e.g., in a `skills/` folder at root, or scattered in other locations)
 3. Check if `docs/knowledge/`, `docs/plans/`, `scripts/`, or `setup/` already exist
 4. Check if `CLAUDE.md` already exists
-5. Check if `.claude/settings.json` already exists (hooks)
+5. Check if `.claude/settings.json` already exists
 6. Check if `.mcp.json` already exists
 7. List any potential conflicts
 
@@ -58,7 +58,7 @@ After I confirm, apply the machote structure following these strict safety rules
 - **Never move** existing files — if skills exist elsewhere, COPY them into `.claude/skills/` and tell me where the originals are so I can decide whether to remove them
 
 ### Merge behavior:
-- If `.claude/settings.json` exists: **merge** the hooks from the template (PreToolUse + SessionStart) with existing hooks — don't overwrite
+- **Project Hooks are optional**: Copy the template's `.claude/settings.json.example` into `.claude/`. DO NOT create or modify `.claude/settings.json` unless the user explicitly asks for it.
 - If `CLAUDE.md` exists: see Step 5 below (full integration, not just appending)
 - If `.gitignore` exists: **append** missing entries from the template — don't replace
 
@@ -99,7 +99,7 @@ rm -rf /tmp/machote-template
 
 Show me:
 1. What was created (list of new files/directories)
-2. What was merged (settings.json, .gitignore, CLAUDE.md)
+2. What was merged (.gitignore, CLAUDE.md)
 3. What was NOT touched (existing project files)
 4. Any skills or configs that existed outside `.claude/` that I should review for migration
 5. Recommended next steps (e.g., configure user hooks, activate MCPs)

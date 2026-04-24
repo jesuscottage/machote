@@ -24,10 +24,16 @@ rm -rf .git
 git init
 ```
 
-### 2. Configure user-level hooks (one-time)
+### 2. Configure hooks (optional)
 
-See `setup/setup-hooks.md` for configuring notification sounds and effort level
-in `~/.claude/settings.json`. This only needs to be done once per machine.
+**User-level hooks (one-time):**
+See `setup/setup-hooks.md` for configuring notification sounds and effort level in `~/.claude/settings.json`. 
+
+**Project-level hooks:**
+The machote includes `.claude/settings.json.example` with protective commands. If you want to use them in your project, copy it:
+```bash
+cp .claude/settings.json.example .claude/settings.json
+```
 
 ### 3. Activate MCPs (optional)
 
@@ -70,7 +76,7 @@ The adaptation is **strictly additive** — it will NOT break your existing proj
 - **Never touches** your code, configs, package.json, Docker, CI/CD, APIs, or .env files
 - **Never moves** existing project files — if you already have skills outside `.claude/`, they get copied (not moved) until you confirm
 - **Never modifies** API connections, credentials, deploy configuration, or dependencies
-- If `.claude/settings.json` already exists, Claude **merges** hooks (doesn't overwrite)
+- Project hooks are provided as `.claude/settings.json.example` and are strictly optional
 - If `CLAUDE.md` already exists, Claude **appends** to it (doesn't replace)
 - If `.mcp.json` already exists, Claude **doesn't touch it** (only creates `.mcp.json.example` as reference)
 
@@ -102,7 +108,7 @@ To adapt this machote to your existing project:
 Safety guarantees:
 - Your code, APIs, .env, Docker, CI/CD are NOT touched
 - Only Claude organization folders are created
-- If you already have .claude/settings.json, hooks are merged
+- Hooks are optional (provided as .claude/settings.json.example)
 - If you already have skills elsewhere, they are copied (not moved)
 ```
 

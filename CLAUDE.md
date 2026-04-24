@@ -13,7 +13,7 @@ Machote/
 ├── .gitignore                    # Ignored files
 ├── .mcp.json.example             # MCP catalog (not active by default)
 ├── .claude/
-│   ├── settings.json             # Project hooks (PreToolUse + SessionStart)
+│   ├── settings.json.example     # Project hooks (not active by default)
 │   ├── rules/                    # Shared rules
 │   │   ├── organizacion.md       # MANDATORY: directory structure
 │   │   ├── idioma.md             # Language + Spanish accents
@@ -149,8 +149,8 @@ Machote/
 
 ## Hooks
 
-- **Project** (`.claude/settings.json`): destructive command blocking + context injection
-- **User** (`~/.claude/settings.json`): notification sounds + effort level
+- **Project** (`.claude/settings.json.example`): destructive command blocking + context injection. Not active by default. Copy to `.claude/settings.json` to enable.
+- **User** (`~/.claude/settings.json`): notification sounds + effort level. Also optional.
 - See `setup/setup-hooks.md` for user-level hook configuration
 
 ## MCPs
