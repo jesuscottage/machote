@@ -1,6 +1,6 @@
 # Knowledge Base Index / Índice de Conocimiento
 
-> Last updated / Última actualización: [UPDATE THIS DATE]
+> Last updated / Última actualización: 2026-05-26
 > Query: `/consultar-conocimiento [topic]` or `/query-knowledge [topic]`
 > The researcher agent keeps this index updated.
 
