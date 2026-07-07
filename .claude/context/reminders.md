@@ -22,7 +22,6 @@
 - **Research & findings**: `docs/knowledge/` with index at `INDEX.md`
   - Subcategories: competitors, market, methodology, regulations, technology
 - **Actionable plans**: `docs/plans/` with checkboxes
-- **Query**: `/consultar-conocimiento [topic]` or `/query-knowledge [topic]`
 
 ## Key skills
 
@@ -32,8 +31,7 @@
 | Agent review | "auto-revisión" | "review this", `/agent-review` |
 | Systematic review | `/revision-sistematica` | `/systematic-review` |
 | Gemini code review | `/revisar-codigo-gemini` | `/review-code-gemini` |
-| Gemini consultation | `/consultar-gemini` | `/ask-gemini` |
-| Knowledge query | `/consultar-conocimiento` | `/query-knowledge` |
+| Consult models | "consultar modelos" | "consult models", `/consultar-modelos` |
 | Status report | `/generar-informe` | `/generate-report` |
 | Fix spelling | `/corregir-ortografia` | `/fix-spelling` |
 | Multi-agent consensus | "consenso" | "consensus", `/stochastic-multi-agent-consensus` |

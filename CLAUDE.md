@@ -4,6 +4,33 @@
 > Primary language: configurable in `.claude/rules/idioma.md` (default: Spanish).
 > See `README.md` for setup instructions.
 
+## Configuración inicial del proyecto
+
+Cuando se inicializa un nuevo proyecto desde este template, Claude DEBE completar los siguientes pasos en la primera sesión:
+
+### 1. Idioma
+Editar `.claude/rules/idioma.md` → cambiar `idioma-principal` a `es` o `en` según el proyecto.
+
+### 2. Skill `/consultar-modelos` — Modo C
+El Modo C (GPT Copilot web) requiere conocer los repos GitHub del proyecto.
+Editar `.claude/skills/consultar-modelos/plantilla-prompt-modo-c-gpt.md` y reemplazar `{REPOS_GITHUB}` con la lista real:
+
+```
+- `owner/repo-principal` — Documentación, knowledge base, reglas
+- `owner/repo-backend` — API / servidor
+- `owner/repo-frontend` — UI / cliente
+```
+
+Si el proyecto tiene un solo repo, usar solo ese. Omitir repos que no existen.
+
+### 3. Reminders
+Editar `.claude/context/reminders.md` → actualizar la fecha y ajustar el resumen al proyecto.
+
+### 4. CLAUDE.md
+Reemplazar esta sección de configuración con información real del proyecto (nombre, descripción, repo, stack).
+
+---
+
 ## Project Structure
 
 ```
@@ -135,7 +162,6 @@ Machote/
 
 - **Research & findings**: `docs/knowledge/` with index at `INDEX.md`
 - **Categories**: competitors, market, methodology, regulations, technology
-- **Query**: `/consultar-conocimiento [topic]` or `/query-knowledge [topic]`
 - **Always update INDEX.md** when adding or removing documents
 
 ## Plans
