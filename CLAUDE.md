@@ -44,7 +44,7 @@ Machote/
 | Security | `.claude/rules/seguridad.md` | OWASP, secrets, inputs |
 | Quality | `.claude/rules/calidad.md` | Conventions, testing, docs |
 
-## Skills (51 total)
+## Skills (50 total)
 
 ### Development & Quality
 
@@ -56,7 +56,7 @@ Machote/
 | `/stochastic-multi-agent-consensus` | "consenso", "N agentes" | "consensus", "poll agents" | N agents analyze, aggregate by consensus |
 | `/model-chat` | "debate de modelos" | "model chat", "agent debate" | 5+ instances debate in shared room |
 | `/revisar-codigo-gemini` | "revisar código con Gemini" | "review code with Gemini" | Code review with Gemini as reviewer |
-| `/consultar-gemini` | "consultar a Gemini" | "ask Gemini" | Architecture/decision consultations with Gemini |
+| `/consultar-modelos` | "consultar modelos", "preguntar a Gemini y GPT" | "ask models", "consult models" | Consult Gemini + GPT as external reviewers (3 modes: Antigravity, web, Copilot) |
 | `/generar-informe` | "informe de estado" | "status report", "generate report" | Structured project status report |
 | `/corregir-ortografia` | "corregir acentos" | "fix spelling", "fix accents" | Fix accents in markdown files |
 
@@ -66,7 +66,6 @@ Machote/
 |-------|----------|-------------|
 | `/revision-sistematica` | "búsqueda sistemática", "systematic review" | 7 phases, 6 APIs, PRISMA-S methodology |
 | `/x-search` | "buscar en X/Twitter", "search X/Twitter" | Search with Grok API |
-| `/consultar-conocimiento` | "consultar conocimiento", "query knowledge" | Query docs/knowledge/ |
 
 ### Design & Diagrams
 
