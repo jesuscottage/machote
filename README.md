@@ -10,7 +10,7 @@ in the most effective way possible.
 - **1 research agent** with knowledge base persistence
 - **1 semantic commit command** (bilingual)
 - **Knowledge management** with mandatory indexes
-- **MCP catalog** (18+ recommended servers, not installed by default)
+- **MCP catalog** (25 categories, 150+ servers, not installed by default)
 
 ## Quick setup
 
@@ -30,7 +30,7 @@ cp .mcp.json.example .mcp.json
 # Edit .mcp.json: uncomment the servers you need
 ```
 
-See `setup/mcp-catalog.md` for the complete catalog with descriptions.
+See `docs/knowledge/technology/mcp-catalog.md` for the complete catalog with descriptions.
 
 ### 3. Customize
 
@@ -48,55 +48,12 @@ See `setup/mcp-catalog.md` for the complete catalog with descriptions.
 
 ## Adapt to an existing project
 
-If you already have a project and want to adopt this organization, ask Claude:
+This template also works for existing projects. Tell Claude what your project is
+and that you want to adapt it — Claude will follow the adaptation rules in
+`docs/knowledge/methodology/adaptacion-proyecto-existente.md` automatically.
 
-```
-Adapt the machote organization to this project.
-The machote is at [path-to-cloned-machote].
-Adapt the rules and skills to this stack/context.
-```
-
-### Safety guarantees
-
-The adaptation is **strictly additive** — it will NOT break your existing project:
-
-- **Only creates** new folders (`.claude/`, `docs/knowledge/`, `docs/plans/`, `setup/`)
-- **Never touches** your code, configs, package.json, Docker, CI/CD, APIs, or .env files
-- **Never moves** existing project files — if you already have skills outside `.claude/`, they get copied (not moved) until you confirm
-- **Never modifies** API connections, credentials, deploy configuration, or dependencies
-- If `CLAUDE.md` already exists, Claude **appends** to it (doesn't replace)
-- If `.mcp.json` already exists, Claude **doesn't touch it** (only creates `.mcp.json.example` as reference)
-
-### Adaptation checklist
-
-Claude follows this checklist when adapting:
-
-1. Identify what already exists: `ls .claude/ docs/ setup/ 2>/dev/null`
-2. List potential conflicts (files that already exist at target paths)
-3. Present the list of proposed changes BEFORE executing
-4. Wait for explicit user confirmation
-5. Create backup of any file that will be modified
-6. Execute additive changes only
-7. Verify the project still works (`git status` — no original project files were modified)
-
-### Step by step
-
-```
-To adapt this machote to your existing project:
-
-1. Open Claude Code at your project root
-2. Tell Claude: "Adapt the machote organization to this project.
-   The machote is at [path-to-cloned-machote]."
-3. Claude will read the machote's CLAUDE.md and show you
-   exactly which folders/files it will create
-4. Confirm the changes
-5. Claude will create the structure WITHOUT touching your code or configs
-
-Safety guarantees:
-- Your code, APIs, .env, Docker, CI/CD are NOT touched
-- Only Claude organization folders are created
-- If you already have skills elsewhere, they are copied (not moved)
-```
+The adaptation is **strictly additive**: only creates new folders, never touches
+your code, configs, .env, Docker, CI/CD, or dependencies.
 
 ---
 
@@ -154,7 +111,7 @@ This is automatic — you don't need to create it manually.
 | `docs/plans/` | Actionable plans with progress tracking |
 | `docs/reviews/` | Code reviews and consultations (created as needed) |
 | `scripts/` | Auxiliary scripts (orthography fix, etc.) |
-| `setup/` | Setup instructions (MCPs) |
+| `docs/knowledge/technology/` | MCP catalog, architecture decisions, stack docs |
 
 ---
 

@@ -13,7 +13,7 @@ Claude MUST place files in the correct location and MUST NOT create alternative 
 project-root/
 ├── CLAUDE.md                    # Project instructions for Claude (always at root)
 ├── .claude/
-│   ├── settings.json            # Project hooks (PreToolUse, SessionStart)
+│   ├── settings.json            # Project hooks and permissions
 │   ├── rules/                   # Shared rules (language, security, quality, business)
 │   ├── agents/                  # Agent definitions (researcher, etc.)
 │   ├── skills/                  # ALL skills live here — one folder per skill
@@ -42,7 +42,6 @@ project-root/
 │           └── reportes/
 │
 ├── scripts/                     # Auxiliary scripts (orthography, generation, etc.)
-├── setup/                       # Setup instructions (hooks, MCPs)
 └── .mcp.json                    # Active MCP servers (optional)
 ```
 

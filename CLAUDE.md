@@ -6,7 +6,9 @@
 
 ## Configuración inicial del proyecto
 
-Cuando se inicializa un nuevo proyecto desde este template, Claude DEBE completar los siguientes pasos en la primera sesión:
+Cuando se inicializa un proyecto desde este template, Claude DEBE completar los siguientes pasos en la primera sesión.
+
+> **Adaptación de proyecto existente**: si el usuario quiere aplicar esta plantilla a un proyecto que ya tiene código y estructura propia, Claude DEBE consultar `docs/knowledge/methodology/adaptacion-proyecto-existente.md` y seguir las reglas de adaptación aditiva antes de ejecutar los pasos siguientes.
 
 ### 1. Idioma
 Editar `.claude/rules/idioma.md` → cambiar `idioma-principal` a `es` o `en` según el proyecto.
@@ -28,6 +30,32 @@ Editar `.claude/context/reminders.md` → actualizar la fecha y ajustar el resum
 
 ### 4. CLAUDE.md
 Reemplazar esta sección de configuración con información real del proyecto (nombre, descripción, repo, stack).
+
+### 5. MCPs recomendados
+Revisar `docs/knowledge/technology/mcp-catalog.md` (catálogo exhaustivo con 25 categorías y 150+ servidores MCP).
+Según el stack y objetivo del proyecto, **recomendar al usuario los 3–5 MCPs más relevantes**.
+
+Reglas:
+- **Context7 siempre recomendado** para proyectos de desarrollo.
+- Analizar el stack del proyecto (lenguaje, framework, DB, cloud, CI/CD) y sugerir MCPs que encajen.
+- Máximo 3–5 MCPs para evitar consumo excesivo de tokens.
+- Presentar una tabla con: nombre, qué aporta al proyecto, y si requiere API key.
+- Preguntar al usuario si quiere activarlos y, si acepta, configurar `.mcp.json` automáticamente.
+- Si el proyecto no tiene `.mcp.json`, crearlo a partir de `.mcp.json.example`.
+
+Ejemplo de recomendación:
+```
+Según el stack de tu proyecto (Next.js + Supabase + Vercel), te recomiendo estos MCPs:
+
+| MCP | Aporta | API Key |
+|-----|--------|---------|
+| Context7 | Docs actualizadas de Next.js, React, etc. | No |
+| Supabase | Queries, migraciones, auth desde Claude | Sí |
+| Playwright | Testing E2E automatizado | No |
+| Vercel | Deploy y env vars desde Claude | OAuth |
+
+¿Quieres que los active?
+```
 
 ---
 
@@ -54,12 +82,12 @@ Machote/
 │       └── reminders.md          # Auto-injected at session start
 ├── scripts/
 │   └── fix-spanish-ortho.sh      # Spanish orthography fix script
-├── docs/
-│   ├── knowledge/
-│   │   └── INDEX.md              # Knowledge base index (mandatory)
-│   └── plans/                    # Actionable plans with checkboxes
-└── setup/
-    └── mcp-catalog.md            # Exhaustive MCP catalog (18+)
+└── docs/
+    ├── knowledge/
+    │   ├── INDEX.md              # Knowledge base index (mandatory)
+    │   └── technology/
+    │       └── mcp-catalog.md    # Exhaustive MCP catalog (25 categories, 150+)
+    └── plans/                    # Actionable plans with checkboxes
 ```
 
 ## Rules
@@ -172,5 +200,5 @@ Machote/
 
 ## MCPs
 
-Not installed by default. See `setup/mcp-catalog.md` for the complete catalog.
+Not installed by default. See `docs/knowledge/technology/mcp-catalog.md` for the complete catalog.
 To activate: copy `.mcp.json.example` to `.mcp.json` and uncomment servers.

@@ -1,6 +1,6 @@
 # Project Context Reminders / Recordatorios de Contexto
 
-> Auto-loaded at session start via SessionStart hook.
+> Auto-loaded at session start (files in `.claude/context/` are auto-injected).
 > Last updated: [UPDATE THIS DATE]
 
 ---
@@ -39,5 +39,5 @@
 
 ## MCPs
 
-- Not installed by default. See `setup/mcp-catalog.md` for recommendations.
+- Not installed by default. See `docs/knowledge/technology/mcp-catalog.md` for recommendations.
 - To activate: copy `.mcp.json.example` to `.mcp.json` and uncomment servers.

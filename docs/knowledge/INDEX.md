@@ -1,6 +1,6 @@
 # Knowledge Base Index / Índice de Conocimiento
 
-> Last updated / Última actualización: 2026-05-26
+> Last updated / Última actualización: 2026-08-03
 > Query: `/consultar-conocimiento [topic]` or `/query-knowledge [topic]`
 > The researcher agent keeps this index updated.
 
@@ -25,7 +25,8 @@
 
 | ID | Path | Title | Date | Description |
 |----|------|-------|------|-------------|
-| — | — | No documents yet | — | Use the researcher agent to start building your knowledge base |
+| 001 | `technology/mcp-catalog.md` | Catálogo exhaustivo de servidores MCP | 2026-08-03 | 25 categorías, 150+ servidores MCP verificados con comandos de instalación, descripción y requisitos |
+| 002 | `methodology/adaptacion-proyecto-existente.md` | Reglas de adaptación a proyecto existente | 2026-08-03 | Protocolo aditivo para aplicar la plantilla a proyectos con código existente sin romper nada |
 
 ---
 
