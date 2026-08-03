@@ -1,0 +1,31 @@
+# Configuración de Gitleaks para este proyecto
+# Extiende las reglas por defecto (AWS, GitHub, Stripe, Firebase, etc.)
+#
+# Instalación:
+#   Copiar a la raíz del proyecto como .gitleaks.toml
+
+[extend]
+useDefault = true
+
+# --- Reglas personalizadas ---
+# Agrega aquí patrones específicos de tu stack. Ejemplos:
+#
+# [[rules]]
+# id = "xai-api-key"
+# description = "xAI API Key"
+# regex = '''xai-[a-zA-Z0-9]{30,}'''
+#
+# [[rules]]
+# id = "resend-api-key"
+# description = "Resend API Key"
+# regex = '''re_[a-zA-Z0-9]{20,}'''
+
+# --- Allowlist: archivos con valores de ejemplo o plantillas ---
+
+[allowlist]
+description = "Plantillas y archivos con valores de ejemplo"
+paths = [
+  ".env.local-template",
+  ".env.example",
+  ".env.*.example",
+]

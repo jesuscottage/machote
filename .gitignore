@@ -12,10 +12,12 @@ __pycache__/
 *.pyo
 
 # Temporary files
-.tmp/
-active/
 *.tmp
 *.log
+!.tmp/
+.tmp/*
+!.tmp/.gitkeep
+active/
 
 # OS files
 .DS_Store

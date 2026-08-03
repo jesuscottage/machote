@@ -42,6 +42,7 @@ project-root/
 │           └── reportes/
 │
 ├── scripts/                     # Auxiliary scripts (orthography, generation, etc.)
+├── .tmp/                        # Temporary files (gitignored, never committed)
 └── .mcp.json                    # Active MCP servers (optional)
 ```
 
@@ -78,7 +79,13 @@ project-root/
 - **Tracking** documents progress per batch
 
 ### Temporary files
-- **`.tmp/`** for throwaway files (gitignored)
+- **`.tmp/`** is the default destination for ALL temporary and throwaway files (gitignored)
+  - Scripts de un solo uso (one-off scripts, data transformations, migrations)
+  - Capturas de pantalla de Playwright u otras herramientas de debugging
+  - Archivos de salida intermedios (CSVs temporales, JSON de prueba, logs)
+  - Prototipos rápidos y experimentos desechables
+  - Cualquier archivo que NO necesite persistir entre sesiones ni commitearse
+- **Claude DEBE usar `.tmp/`** en lugar de crear archivos temporales en la raíz o en otras carpetas
 - **`active/`** for in-progress work artifacts (gitignored)
 
 ## Adapting to existing projects

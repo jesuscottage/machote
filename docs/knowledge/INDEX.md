@@ -27,6 +27,8 @@
 |----|------|-------|------|-------------|
 | 001 | `technology/mcp-catalog.md` | Catálogo exhaustivo de servidores MCP | 2026-08-03 | 25 categorías, 150+ servidores MCP verificados con comandos de instalación, descripción y requisitos |
 | 002 | `methodology/adaptacion-proyecto-existente.md` | Reglas de adaptación a proyecto existente | 2026-08-03 | Protocolo aditivo para aplicar la plantilla a proyectos con código existente sin romper nada |
+| 003 | `technology/hooks-reference.md` | Referencia de hooks opcionales | 2026-08-03 | Configuración de hooks de sonido (Stop, Notification) y pre-commit Gitleaks para detección de credenciales |
+| 004 | `technology/skills-catalog.md` | Catálogo de skills de la comunidad | 2026-08-03 | Skills populares de terceros (Superpowers, Trail of Bits, Karpathy, Vercel, etc.) con repos y métricas |
 
 ---
 

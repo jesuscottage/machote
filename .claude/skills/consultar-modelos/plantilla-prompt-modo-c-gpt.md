@@ -5,7 +5,7 @@
 > **Push obligatorio** antes de usar este modo — GPT Copilot accede al código desde GitHub.
 > El usuario copia la respuesta del chat y la pega en el placeholder.
 >
-> **Configuración**: reemplaza `{REPOS_GITHUB}` con los repos reales del proyecto antes de usar.
+> **Variable `{REPOS_GITHUB}`**: Claude la completa en runtime con los repos GitHub del proyecto.
 
 ---
 
@@ -65,7 +65,7 @@ El usuario lo copiará al archivo correspondiente del proyecto.
 | `{DOMINIO}` | Área de expertise |
 | `{NOMBRE_PROYECTO}` | Nombre del proyecto actual |
 | `{DESCRIPCION_BREVE}` | Una línea describiendo el proyecto |
-| `{REPOS_GITHUB}` | Lista de repos GitHub del proyecto (formato: `- \`owner/repo\` — descripción`). **Configurar una vez al adaptar esta plantilla al proyecto.** |
+| `{REPOS_GITHUB}` | Lista de repos GitHub del proyecto (formato: `- \`owner/repo\` — descripción`). Claude la completa en runtime. |
 | `{CONTEXTO}` | Situación actual, decisiones previas |
 | `{ARCHIVOS}` | Lista de paths relativos que GPT debe leer desde los repos GitHub |
 | `{TAREA}` | Qué se espera del modelo |

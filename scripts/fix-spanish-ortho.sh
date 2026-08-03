@@ -3,7 +3,7 @@
 # Uso: ./scripts/fix-spanish-ortho.sh [--apply] <archivo-o-directorio>
 #
 # Por defecto muestra los cambios (dry-run). Con --apply los aplica.
-# Diseñado para docs/knowledge/ del proyecto Delph-AI.
+# Diseñado para archivos markdown del proyecto (docs/, .claude/, etc.).
 #
 # PROTECCIONES:
 # - No modifica líneas con URLs (http://, https://)

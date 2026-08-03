@@ -62,8 +62,8 @@
 - **Dos archivos placeholder** para los reportes.
 - El usuario copia la respuesta de GPT del chat y la pega en el placeholder.
 
-> **Configuración requerida para Modo C**: antes de usar, identificar los repos GitHub del proyecto
-> y reemplazar `{REPOS_GITHUB}` en la plantilla [plantilla-prompt-modo-c-gpt.md](plantilla-prompt-modo-c-gpt.md).
+> **Modo C**: al usar este modo, Claude debe completar `{REPOS_GITHUB}` en el prompt generado
+> con los repos GitHub del proyecto actual (se resuelve en runtime, no requiere configuración previa).
 
 ---
 

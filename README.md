@@ -1,120 +1,134 @@
 # Machote — Claude Code Project Template
 
-Reusable repository template for organizing any project with Claude Code
-in the most effective way possible.
+Plantilla universal para inicializar cualquier proyecto con Claude Code y construirlo de forma ordenada y eficiente.
 
-## What's included
+Proporciona estructura, reglas, skills, y herramientas desde el primer minuto — para que Claude trabaje con contexto, organización y criterio desde la sesión cero.
 
-- **51 skills** organized by category (development, research, leads, YouTube, infrastructure)
-- **4 shared rules** (organization, language, security, quality)
-- **1 research agent** with knowledge base persistence
-- **1 semantic commit command** (bilingual)
-- **Knowledge management** with mandatory indexes
-- **MCP catalog** (25 categories, 150+ servers, not installed by default)
+## Qué incluye
 
-## Quick setup
+### Configuración de Claude
 
-### 1. Clone
+| Componente | Ubicación | Descripción |
+|------------|-----------|-------------|
+| **4 reglas compartidas** | `.claude/rules/` | Organización obligatoria, idioma, seguridad (OWASP), calidad de código |
+| **26 skills curados** | `.claude/skills/` | Desarrollo, multi-agente, investigación, planning, seguridad, testing, diseño, contenido, automatización, meta-tooling |
+| **1 agente investigador** | `.claude/agents/` | Investigación de tecnologías, competidores, regulaciones con persistencia en knowledge base |
+| **1 comando de commit** | `.claude/commands/` | Commit semántico + push + PR (bilingüe) |
+| **Contexto automático** | `.claude/context/` | `reminders.md` se auto-inyecta en cada sesión |
+
+### Estructura del proyecto
+
+| Directorio | Propósito |
+|------------|-----------|
+| `docs/knowledge/` | Base de conocimiento persistente con `INDEX.md` obligatorio. Categorías: competitors, market, methodology, regulations, technology |
+| `docs/plans/` | Planes accionables con checkboxes y tracking de progreso |
+| `docs/reviews/` | Revisiones de código y consultas (se crean según necesidad) |
+| `scripts/` | Scripts reutilizables (corrección ortográfica, fuentes de hooks) |
+| `.tmp/` | Archivos temporales — scripts de un solo uso, capturas de debugging, CSVs intermedios. Gitignored, nunca se commitean |
+
+### Catálogo de MCPs
+
+`docs/knowledge/technology/mcp-catalog.md` — catálogo exhaustivo de 150+ servidores MCP organizados en 25 categorías (desarrollo, bases de datos, cloud, CI/CD, comunicación, etc.). No se instalan por defecto; Claude recomienda los más relevantes durante la inicialización según el stack del proyecto.
+
+### Hooks opcionales
+
+`docs/knowledge/technology/hooks-reference.md` — referencia técnica de 3 hooks que Claude ofrece durante la inicialización:
+
+| Hook | Qué hace |
+|------|----------|
+| **Sonido al terminar** | Beeps cuando Claude termina de responder |
+| **Sonido de notificación** | Beeps cuando Claude pide atención |
+| **Pre-commit Gitleaks** | Bloquea commits con credenciales filtradas (API keys, tokens, passwords) |
+
+## Cómo usarlo
+
+### 1. Clonar
 
 ```bash
-git clone https://github.com/jesuscottage/machote.git my-project
+git clone https://github.com/{owner}/machote.git my-project
 cd my-project
 rm -rf .git
 git init
 ```
 
-### 2. Activate MCPs (optional)
+### 2. Abrir Claude Code
 
-```bash
-cp .mcp.json.example .mcp.json
-# Edit .mcp.json: uncomment the servers you need
+**Siempre abrir desde la raíz del proyecto.** Las reglas solo se cargan desde la raíz.
+
+En la primera sesión, Claude ejecuta automáticamente el flujo de inicialización descrito en `CLAUDE.md`:
+- Configura el idioma
+- Personaliza los archivos del proyecto
+- Recomienda MCPs según el stack
+- Ofrece hooks opcionales
+- Transforma `CLAUDE.md` y `README.md` al contexto del proyecto real
+
+### 3. Adaptar a un proyecto existente
+
+También funciona para proyectos con código existente. Decirle a Claude qué proyecto es y que se quiere adaptar — Claude sigue las reglas de adaptación aditiva en `docs/knowledge/methodology/adaptacion-proyecto-existente.md`.
+
+La adaptación es **estrictamente aditiva**: solo crea carpetas nuevas, nunca toca código, configs, .env, Docker, CI/CD ni dependencias existentes.
+
+---
+
+## Skills destacados
+
+### Desarrollo y calidad
+- `/prompt-contract` — Contrato estructurado antes de implementar
+- `/agent-review` — Sub-agentes revisan automáticamente post-implementación
+- `/reverse-prompt` — Preguntas clarificadoras (previene suposiciones)
+- `/consultar-modelos` — Consultar Gemini + GPT como revisores externos
+- `/security-audit` — Auditoría OWASP Top 10 (inspirado en Trail of Bits)
+- `/test-webapp` — Testing de apps web con Playwright
+
+### Planning, investigación y documentación
+- `/plan` — Planes persistentes en markdown que sobreviven /clear
+- `/generate-doc` — Generar specs, propuestas, reportes en markdown/HTML
+- `/revision-sistematica` — Investigación académica exhaustiva (7 fases, 6 APIs)
+- `/stochastic-multi-agent-consensus` — N agentes con consenso
+
+### Diseño, contenido y meta-tooling
+- `/diagram-generator` + `/excalidraw-flowchart` — Diagramas y flowcharts
+- `/design-website` — Mockups HTML premium
+- `/create-skill` — Meta-skill: crear nuevos skills interactivamente
+
+---
+
+## Estructura completa
+
+```
+project-root/
+├── CLAUDE.md                     # Instrucciones para Claude (flujo de setup / contexto del proyecto)
+├── README.md                     # Este archivo
+├── .gitignore
+├── .mcp.json.example             # Catálogo MCP (no activo por defecto)
+├── .claude/
+│   ├── rules/                    # Reglas compartidas
+│   │   ├── organizacion.md       # Estructura obligatoria de directorios
+│   │   ├── idioma.md             # Idioma + acentos en español
+│   │   ├── seguridad.md          # OWASP, secretos, inputs
+│   │   └── calidad.md            # Convenciones, testing, docs
+│   ├── agents/
+│   │   └── investigador.md       # Agente de investigación
+│   ├── skills/                   # 26 skills organizados por categoría
+│   ├── commands/
+│   │   └── commit.md             # Commit semántico + push + PR
+│   └── context/
+│       └── reminders.md          # Contexto auto-inyectado en cada sesión
+├── scripts/
+│   ├── fix-spanish-ortho.sh      # Corrección ortográfica en español
+│   ├── gitleaks-pre-commit.sh    # Fuente del hook pre-commit (se copia durante setup)
+│   └── gitleaks.toml             # Configuración base de Gitleaks (se copia durante setup)
+├── .tmp/                         # Archivos temporales (gitignored)
+└── docs/
+    ├── knowledge/
+    │   ├── INDEX.md              # Índice de la knowledge base (obligatorio)
+    │   ├── methodology/          # Frameworks, estándares, best practices
+    │   └── technology/           # Stack, MCPs, hooks, decisiones de arquitectura
+    └── plans/                    # Planes accionables con checkboxes
 ```
 
-See `docs/knowledge/technology/mcp-catalog.md` for the complete catalog with descriptions.
-
-### 3. Customize
-
-1. Edit `CLAUDE.md` with your project's info (name, stack, structure)
-2. Edit `.claude/context/reminders.md` with your specific context
-3. Edit `.claude/rules/idioma.md`: change `idioma-principal` if needed (default: `es`)
-4. Add business rules in `.claude/rules/negocio.md` (create new file)
-5. Populate `docs/knowledge/` with your research
-
-### 4. Open Claude Code
-
-**Always open from the project root.** The rules only load from the root.
-
 ---
 
-## Adapt to an existing project
-
-This template also works for existing projects. Tell Claude what your project is
-and that you want to adapt it — Claude will follow the adaptation rules in
-`docs/knowledge/methodology/adaptacion-proyecto-existente.md` automatically.
-
-The adaptation is **strictly additive**: only creates new folders, never touches
-your code, configs, .env, Docker, CI/CD, or dependencies.
-
----
-
-## Featured skills
-
-### For ANY development project
-- `/prompt-contract` — Contract before implementing (prevents rework)
-- `/agent-review` — Automatic review post-implementation
-- `/reverse-prompt` — Clarifying questions (prevents assumptions)
-- `/revision-sistematica` — Exhaustive academic research (7 phases, 6 APIs)
-- `/consultar-conocimiento` — Query your knowledge base
-- `/generar-informe` — Project status report
-- `/stochastic-multi-agent-consensus` — Poll N agents for decisions
-- `/model-chat` — Debate between Claude instances
-
-### For agencies / freelancers
-- Gmail, leads, Instantly, proposals, onboarding skills
-- YouTube skills (outliers, thumbnails, metadata, tracking)
-- `/design-website` — HTML mockups for prospects
-
-### For complex decisions
-- `/stochastic-multi-agent-consensus` — Poll of N agents with consensus aggregation
-- `/model-chat` — Multi-instance debate with synthesis
-- `/consultar-gemini` — Architecture consultations with Gemini as second brain
-
----
-
-## Claude's persistent memory
-
-Claude automatically stores persistent memory in:
-```
-~/.claude/projects/{project-hash}/memory/
-```
-
-Recommended organization:
-- `MEMORY.md` — Memory index
-- `feedback_*.md` — User feedback on Claude's behavior
-- `project_*.md` — Project information (stack, state, decisions)
-- `reference_*.md` — External references (repos, URLs, contacts)
-
-This is automatic — you don't need to create it manually.
-
----
-
-## Project structure explained
-
-| Directory | Purpose |
-|-----------|---------|
-| `.claude/rules/` | Shared rules that Claude must follow |
-| `.claude/skills/` | ALL skills — one folder per skill with SKILL.md |
-| `.claude/agents/` | Agent definitions (researcher, etc.) |
-| `.claude/commands/` | Custom slash commands (/commit, etc.) |
-| `.claude/context/` | Context auto-injected at session start |
-| `docs/knowledge/` | Persistent knowledge base with INDEX.md |
-| `docs/plans/` | Actionable plans with progress tracking |
-| `docs/reviews/` | Code reviews and consultations (created as needed) |
-| `scripts/` | Auxiliary scripts (orthography fix, etc.) |
-| `docs/knowledge/technology/` | MCP catalog, architecture decisions, stack docs |
-
----
-
-## License
+## Licencia
 
 MIT
